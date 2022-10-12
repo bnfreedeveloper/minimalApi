@@ -16,7 +16,7 @@ namespace minimalApi.Repository
         {
             this._dbContext = dbContext;
         }
-        public async Task Create(Command cmd)
+        public async Task CreateAsync(Command cmd)
         {
             await _dbContext.AddAsync(cmd);
         }
@@ -26,17 +26,17 @@ namespace minimalApi.Repository
             _dbContext.Commands.Remove(cmd);
         }
 
-        public async Task<IEnumerable<Command>> GetAll()
+        public async Task<IEnumerable<Command>> GetAllAsync()
         {
             return await _dbContext.Commands.ToListAsync();
         }
 
-        public async Task<Command?> GetById(int id)
+        public async Task<Command?> GetByIdAsync(int id)
         {
             return await _dbContext.Commands.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task SaveChanges()
+        public async Task SaveChangesAsync()
         {
             await _dbContext.SaveChangesAsync();
         }

@@ -8,11 +8,11 @@ namespace minimalApi.Repository
 {
     public interface IRepository
     {
-        Task SaveChanges();
-        Task<Command?> GetById(int id);
-        Task<IEnumerable<Command>> GetAll();
+        Task SaveChangesAsync();
+        Task<Command?> GetByIdAsync(int id);
+        Task<IEnumerable<Command>> GetAllAsync();
         void Delete(Command cmd);
-        Task Create(Command cmd);
+        Task CreateAsync(Command cmd);
         //not really needed with ef
         // Task update(Command cmd);
     }
